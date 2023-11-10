@@ -1,14 +1,17 @@
 const mysql = require("mysql2");
 const { db } = require("../config/connection");
 
-const selectAll = () =>
+const departments = () => selectAll("department");
+const employees = () => selectAll("employee");
+const roles = () => selectAll("roles");
+
+const selectAll = (table) =>
   db
     .promise()
-    .query(`SELECT * FROM employee`)
-    .then(([rows, fields]) => {
+    .query(`SELECT * FROM ${table}`)
+    .then(([rows]) => {
       console.table(rows);
     })
-    .catch(console.log)
-    .then(() => db.end());
+    .catch(console.log);
 
-module.exports = { selectAll };
+module.exports = { selectAll, departments, employees, roles };

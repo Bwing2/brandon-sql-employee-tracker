@@ -5,13 +5,10 @@ const db = mysql.createConnection(
   {
     host: "localhost",
     user: "root",
-    password: "password",
+    password: process.env.DB_PASSWORD,
     database: "employee_manager_db",
   },
-  console.log(
-    `Connected to employee_manager_db database.`,
-    process.env.DB_PASSWORD
-  )
+  console.log(`Connected to employee_manager_db database.`)
 );
 
 module.exports = { db };

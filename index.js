@@ -1,6 +1,11 @@
 const inquirer = require("inquirer");
-const db = require("./config/connection");
-const { selectAll } = require("./scripts/queries");
+const { db } = require("./config/connection");
+const {
+  selectAll,
+  departments,
+  employees,
+  roles,
+} = require("./scripts/queries");
 
 const options = [
   "View All Employees",
@@ -10,6 +15,7 @@ const options = [
   "Add Role",
   "View All Departments",
   "Add Department",
+  "Quit",
 ];
 
 const questions = [
@@ -35,14 +41,30 @@ console.log(
   `
 );
 
+// const endDb = () => {
+//   init().then(() => db.end());
+// };
+
 const init = () =>
-  inquirer.prompt(questions).then(function (questions) {
+  inquirer.prompt(questions).then((questions) => {
     switch (questions.options) {
       case "View All Employees":
-        selectAll();
-        init();
+        employees();
         break;
+      case "View All Roles":
+        roles();
+        break;
+      case "View All Departments":
+        departments();
+        break;
+      case "Quit":
+        console.log("Goodbye!");
+        db.end();
+        return;
     }
+    setTimeout(() => {
+      init();
+    }, 200);
   });
 
 init();
