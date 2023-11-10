@@ -1,15 +1,14 @@
 const mysql = require("mysql2");
+const { db } = require("../config/connection");
 
-const password = process.env.PASSWORD;
+const selectAll = () =>
+  db
+    .promise()
+    .query(`SELECT * FROM employee`)
+    .then(([rows, fields]) => {
+      console.table(rows);
+    })
+    .catch(console.log)
+    .then(() => db.end());
 
-const db = mysql.createConnection(
-  {
-    host: "localhost",
-    user: "root",
-    password: password,
-    database: "placeholder",
-  },
-  console.log(`Connected to ${database} database.`)
-);
-
-// module.exports =
+module.exports = { selectAll };

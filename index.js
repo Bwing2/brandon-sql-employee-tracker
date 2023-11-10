@@ -1,18 +1,48 @@
 const inquirer = require("inquirer");
-// const "something" = require ("./scripts/queries.js");
+const db = require("./config/connection");
+const { selectAll } = require("./scripts/queries");
 
-require("dotenv").config();
+const options = [
+  "View All Employees",
+  "Add Employee",
+  "Update Employee Role",
+  "View All Roles",
+  "Add Role",
+  "View All Departments",
+  "Add Department",
+];
 
-const mysql = require("mysql2");
-
-const password = process.env.PASSWORD;
-
-const db = mysql.createConnection(
+const questions = [
   {
-    host: "localhost",
-    user: "root",
-    password: password,
-    database: "placeholder",
+    type: "list",
+    name: "options",
+    choices: options,
+    message: "What would you like to do?",
   },
-  console.log(`Connected to ${database} database.`)
+];
+
+console.log(
+  `
+  #####                 ##                                       #####                       #                   
+  #                      #                                         #                         #                   
+  #      ## #   # ##     #     ###   #   #   ###    ###            #    # ##    ###    ###   #   #   ###   # ##  
+  ####   # # #  ##  #    #    #   #  #   #  #   #  #   #           #    ##  #      #  #   #  #  #   #   #  ##  # 
+  #      # # #  ##  #    #    #   #  #  ##  #####  #####           #    #       ####  #      ###    #####  #     
+  #      # # #  # ##     #    #   #   ## #  #      #               #    #      #   #  #   #  #  #   #      #     
+  #####  #   #  #       ###    ###       #   ###    ###            #    #       ####   ###   #   #   ###   #     
+                #                    #   #                                                                       
+                #                     ###                                                                        
+  `
 );
+
+const init = () =>
+  inquirer.prompt(questions).then(function (questions) {
+    switch (questions.options) {
+      case "View All Employees":
+        selectAll();
+        init();
+        break;
+    }
+  });
+
+init();
