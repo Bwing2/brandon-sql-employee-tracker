@@ -1,6 +1,7 @@
 const mysql = require("mysql2");
 const { db } = require("../config/connection");
 
+// Queries from database to insert department_name into department table
 const addDepartment = (department_name) => {
   db.promise()
     .query(
@@ -12,6 +13,7 @@ const addDepartment = (department_name) => {
     .catch(console.log);
 };
 
+// Inserts title, salary, and department_id into roles table
 const addRole = (title, salary, department_id) => {
   db.promise()
     .query(
@@ -23,6 +25,7 @@ const addRole = (title, salary, department_id) => {
     .catch(console.log);
 };
 
+// Inserts first_name, last_name, manager_id, and role_id into employee table
 const addEmployee = (first_name, last_name, manager_id, role_id) => {
   db.promise()
     .query(

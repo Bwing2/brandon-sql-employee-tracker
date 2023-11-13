@@ -109,6 +109,19 @@ const questions = [
       return !managerId ? "Please enter a manager id." : true;
     },
   },
+  // Update employee role
+  {
+    type: "list",
+    name: "employeeNames",
+    message: "Which employee would you like to update?",
+    when: (answers) => answers.options === "Update Employee Role",
+  },
+  {
+    type: "list",
+    name: "updatedRole",
+    message: "What role would you like to assign them?",
+    when: (answers) => answers.options === "Update Employee Role",
+  },
 ];
 
 console.log(
@@ -127,7 +140,7 @@ console.log(
 
 const init = () =>
   inquirer.prompt(questions).then((answers) => {
-    // Deconstructed answers object for all properties
+    // Deconstructed answers object for all query properties
     const {
       options,
       newDepartment,
