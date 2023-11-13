@@ -12,15 +12,26 @@ const addDepartment = (department_name) => {
     .catch(console.log);
 };
 
+const addRole = (title, salary, department_id) => {
+  db.promise()
+    .query(
+      `INSERT INTO roles (title, department_id, salary) VALUES ("${title}", "${salary}", "${department_id}")`
+    )
+    .then(() => {
+      console.log(`Inserted ${title} into roles!`);
+    })
+    .catch(console.log);
+};
+
 const addEmployee = (first_name, last_name, manager_id, role_id) => {
   db.promise()
     .query(
       `INSERT INTO employee (first_name, last_name, manager_id, role_id) VALUES ("${first_name}", "${last_name}", "${manager_id}", "${role_id}")`
     )
-    .then(([rows]) => {
-      console.table(rows);
+    .then(() => {
+      console.log(`Inserted ${first_name} ${last_name} into employees!`);
     })
     .catch(console.log);
 };
 
-module.exports = { addDepartment, addEmployee };
+module.exports = { addDepartment, addRole, addEmployee };
