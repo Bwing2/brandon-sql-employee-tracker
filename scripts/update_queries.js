@@ -1,16 +1,6 @@
 const mysql = require("mysql2");
 const { db } = require("../config/connection");
 
-// const employeeList = () =>
-//   db
-//     .promise()
-//     .query(`SELECT CONCAT (first_name, " ", last_name) AS name FROM employee`)
-//     .then(([rows]) => {
-//       console.log(rows);
-//       return rows;
-//     })
-//     .catch(console.log);
-
 const updateEmployee = (first_name, last_name, role_id, manager_id) => {
   db.promise()
     .query(

@@ -121,20 +121,6 @@ const questions = [
       return !managerId ? "Please enter a manager id." : true;
     },
   },
-  // // Update employee role
-  // {
-  //   type: "list",
-  //   name: "employeeNames",
-  //   choices: employeeList,
-  //   message: "Which employee would you like to update?",
-  //   when: (answers) => answers.options === "Update Employee Role",
-  // },
-  // {
-  //   type: "list",
-  //   name: "updatedRole",
-  //   message: "What role would you like to assign them?",
-  //   when: (answers) => answers.options === "Update Employee Role",
-  // },
 ];
 
 console.log(
@@ -169,11 +155,9 @@ const init = () =>
     // Switch statement for all cases of answers chosen from questions inquirer prompt
     switch (options) {
       case "View All Employees":
-        // employees();
         joinEmployee();
         break;
       case "View All Roles":
-        // roles();
         joinRoles();
         break;
       case "View All Departments":

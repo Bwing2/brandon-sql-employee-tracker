@@ -4,7 +4,7 @@ const { db } = require("../config/connection");
 const joinEmployee = () => {
   db.promise()
     .query(
-      `SELECT employee.id, employee.first_name, employee.last_name, employee.role_id, roles.job_title, department.department_name, roles.salary, employee.manager_id FROM employee JOIN roles ON employee.role_id = roles.id JOIN department ON roles.department_id = department.id ORDER BY employee.id;`
+      `SELECT employee.id, employee.first_name, employee.last_name, employee.role_id, roles.job_title, department_id, department.department_name, roles.salary, employee.manager_id FROM employee JOIN roles ON employee.role_id = roles.id JOIN department ON roles.department_id = department.id ORDER BY employee.id;`
     )
     .then(([rows]) => {
       console.table(rows);
