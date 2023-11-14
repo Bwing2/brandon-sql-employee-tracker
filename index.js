@@ -1,12 +1,7 @@
 const inquirer = require("inquirer");
 const { db } = require("./config/connection");
 
-const {
-  selectAll,
-  departments,
-  employees,
-  roles,
-} = require("./scripts/select_all_queries");
+const { selectAll, departments } = require("./scripts/select_all_queries");
 
 const {
   addDepartment,
@@ -76,7 +71,7 @@ const questions = [
       return !departmentId ? "Please enter a department id." : true;
     },
   },
-  // Add or Update a new employee
+  // Add or update a new employee
   {
     type: "input",
     name: "firstName",

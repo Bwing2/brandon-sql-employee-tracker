@@ -3,8 +3,10 @@ const { db } = require("../config/connection");
 
 // Select all tables as functions
 const departments = () => selectAll("department");
-const employees = () => selectAll("employee");
-const roles = () => selectAll("roles");
+
+// Unused since join_queries.js has everything from these tables but combined with other tables
+// const employees = () => selectAll("employee");
+// const roles = () => selectAll("roles");
 
 // Queries from database to select all from a specific table
 const selectAll = (table) =>
@@ -16,4 +18,4 @@ const selectAll = (table) =>
     })
     .catch(console.log);
 
-module.exports = { selectAll, departments, employees, roles };
+module.exports = { selectAll, departments };

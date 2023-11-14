@@ -1,7 +1,7 @@
 const mysql = require("mysql2");
 const { db } = require("../config/connection");
 
-// Queries from database to insert department_name into department table
+// Inserts department_name into department table
 const addDepartment = (department_name) => {
   db.promise()
     .query(
