@@ -13,23 +13,23 @@ const addDepartment = (department_name) => {
     .catch(console.log);
 };
 
-// Inserts title, salary, and department_id into roles table
-const addRole = (title, salary, department_id) => {
+// Inserts job title, salary, and department_id into roles table
+const addRole = (job_title, salary, department_id) => {
   db.promise()
     .query(
-      `INSERT INTO roles (title, department_id, salary) VALUES ("${title}", "${salary}", "${department_id}")`
+      `INSERT INTO roles (job_title, salary, department_id) VALUES ("${job_title}", "${salary}", "${department_id}")`
     )
     .then(() => {
-      console.log(`Inserted ${title} into roles!`);
+      console.log(`Inserted ${job_title} into roles!`);
     })
     .catch(console.log);
 };
 
 // Inserts first_name, last_name, manager_id, and role_id into employee table
-const addEmployee = (first_name, last_name, manager_id, role_id) => {
+const addEmployee = (first_name, last_name, role_id, manager_id) => {
   db.promise()
     .query(
-      `INSERT INTO employee (first_name, last_name, manager_id, role_id) VALUES ("${first_name}", "${last_name}", "${manager_id}", "${role_id}")`
+      `INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES ("${first_name}", "${last_name}", "${role_id}", "${manager_id}")`
     )
     .then(() => {
       console.log(`Inserted ${first_name} ${last_name} into employees!`);
