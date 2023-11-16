@@ -1,12 +1,12 @@
 # brandon-sql-employee-tracker
 
-[Video Demonstration]()
+[Video Demonstration](https://youtu.be/aRVz6EZluz8)
 
 ![Github License](https://img.shields.io/badge/License-MIT-green.svg)
 
 ## Description
 
-As a web developer, there is a lot of work with databases which makes it important to understand all of the processes of `SQL`. `Inquirer` is also used in this project for question prompts. This project is an employee tracker, which creates and interacts with a `MySQL` database to enter and retrieve information. The hardest part was writing all of the promise queries from the database and setting up my database files. I learned a lot more about promises and how to use databases directly from the terminal / `MySQL Workbench`.
+As a backend web developer, it is common to work with databases. It's important to understand all of the processes of `SQL`. This project is an employee tracker, which creates and interacts with a `MySQL` database to enter and retrieve information. `Inquirer` and `MySQL` are used in this project for question prompts. The hardest part was writing all of the promise queries from the database and setting up my database files. I learned a lot more about promises and how to interact with databases directly from the terminal / `MySQL Workbench`.
 
 ## Table of contents
 
