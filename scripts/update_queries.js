@@ -1,6 +1,7 @@
 const mysql = require("mysql2");
 const { db } = require("../config/connection");
 
+// Updates employee table role_id and manager_id that matches the entered first and last name
 const updateEmployee = (first_name, last_name, role_id, manager_id) => {
   db.promise()
     .query(

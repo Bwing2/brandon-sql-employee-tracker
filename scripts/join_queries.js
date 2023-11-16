@@ -17,6 +17,8 @@ const joinEmployee = () => {
     .catch(console.log);
 };
 
+// Selects two columns from the "department" table "department_id" and "department.department_name" to JOIN "roles" table
+// Foreign key of "roles.department_id" from "roles" table references "department.id" from "department" table
 const joinRoles = () => {
   db.promise()
     .query(
